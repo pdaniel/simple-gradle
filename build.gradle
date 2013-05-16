@@ -1,0 +1,52 @@
+// This is a single project
+
+// apply plugin: 'eclipse'         // adds support for eclipse project generation
+// apply plugin: 'idea'            // adds support for IDEA project generation
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'war'
+apply plugin: 'jetty'
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+repositories {
+    // mavenLocal()
+    maven { url 'http://repo.springsource.org/release' }
+    maven { url 'http://dist.gemstone.com/maven/release' }
+    // maven { url 'http://repo.typesafe.com/typesafe/releases' }
+    // maven { url 'http://download.java.net/maven/2' }
+    // maven { url 'https://repository.apache.org/content/groups/snapshots' }
+    mavenCentral()
+}
+
+dependencies {
+    providedCompile "org.apache.tomcat:tomcat-servlet-api:$tomcatVersion"
+    providedCompile "org.apache.tomcat:tomcat-jsp-api:$tomcatVersion"
+    providedCompile "org.apache.tomcat:tomcat-el-api:$tomcatVersion"
+
+    compile "org.codehaus.groovy:groovy-all:$groovyVersion"
+
+    compile "org.slf4j:slf4j-log4j12:$slf4jVersion"
+    compile "log4j:log4j:$log4jVersion"
+
+    compile "org.springframework:spring-beans:$springVersion"
+    compile "org.springframework:spring-core:$springVersion"
+    compile "org.springframework:spring-context:$springVersion"
+    compile "org.springframework:spring-context-support:$springVersion"
+    compile "org.springframework:spring-expression:$springVersion"
+    compile "org.springframework:spring-web:$springVersion"
+    compile "org.springframework:spring-webmvc:$springVersion"
+
+    compile "com.fasterxml.jackson.core:jackson-core:$jacksonVersion"
+    compile "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
+
+    testCompile "junit:junit:$junitVersion"
+}
+
+task wrapper(type: Wrapper, description: "Create a Gradle self-download wrapper") {
+    group = 'Project Setup'
+    gradleVersion = "$gradleVersion"
+}
+
+
