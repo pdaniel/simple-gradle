@@ -6,6 +6,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
 
 @Controller
 public class GreetingController {
@@ -17,7 +19,7 @@ public class GreetingController {
         this.service = service;
     }
 
-    @RequestMapping(value="/hello/{greeting}", produces={"application/json"})
+    @RequestMapping(value="/hello/{greeting}", method=RequestMethod.GET, produces={"application/json"})
     public ResponseEntity<Greeting> hello(@PathVariable("greeting") String greeting) {
         Greeting instance = service.createGreeting(greeting);
         return new ResponseEntity<Greeting>(instance, HttpStatus.OK);

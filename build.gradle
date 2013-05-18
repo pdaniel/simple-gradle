@@ -6,7 +6,6 @@ apply plugin: 'java'
 apply plugin: 'groovy'
 apply plugin: 'war'
 
-
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
 
@@ -42,6 +41,7 @@ dependencies {
     compile "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
 
     testCompile "junit:junit:$junitVersion"
+    testCompile "org.springframework:spring-test:$springVersion"
 }
 
 task wrapper(type: Wrapper, description: "Create a Gradle self-download wrapper") {
