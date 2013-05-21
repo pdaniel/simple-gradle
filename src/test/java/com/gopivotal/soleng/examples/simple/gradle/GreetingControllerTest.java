@@ -29,16 +29,17 @@ public class GreetingControllerTest {
     @Before
     public void setup() {
         this.mockMvc = MockMvcBuilders
-        		.webAppContextSetup(this.wac)
-        		.build();
+            .webAppContextSetup(this.wac)
+            .build();
+
     }
 
     @Test
     public void testGreeting() throws Exception {
         this.mockMvc.perform(get("/hello/world").accept(MediaType.APPLICATION_JSON))
-          .andExpect(status().isOk())
-          .andExpect(content().contentType("application/json"))
-          .andExpect(content().string("{\"greeting\":\"world\"}"));
+            .andExpect(status().isOk())
+            .andExpect(content().contentType("application/json"))
+            .andExpect(content().string("{\"greeting\":\"world\"}"));
     }
 
 }
