@@ -17,6 +17,14 @@ repositories {
     // maven { url 'https://repository.apache.org/content/groups/snapshots' }
     mavenCentral()
 }
+war{
+        pipelineName = System.getenv('GO_PIPELINE_LABEL')
+        if(pipelineName!=null && !pipelineName.equals("") ){
+            baseName = pipelineName;
+        }else {
+            baseName = "$rootProject"
+        }
+    }
 
 dependencies {
     providedCompile "org.apache.tomcat:tomcat-servlet-api:$tomcatVersion"
