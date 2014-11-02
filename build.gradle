@@ -8,13 +8,10 @@ apply plugin: 'war'
 apply plugin: 'maven'
 
 
-sourceCompatibility = 1.7
-targetCompatibility = 1.7
-
 repositories {
     // mavenLocal()
-    maven { url 'http://repo.springsource.org/release' }
-    maven { url 'http://dist.gemstone.com/maven/release' }
+    //maven { url 'http://repo.springsource.org/release' }
+    //maven { url 'http://dist.gemstone.com/maven/release' }
     // maven { url 'http://repo.typesafe.com/typesafe/releases' }
     // maven { url 'http://download.java.net/maven/2' }
     // maven { url 'https://repository.apache.org/content/groups/snapshots' }
